@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منشئ السير الذاتية الاحترافي | قوالب متعددة</title>
+    <style>
+        /* --- 1. التنسيقات الأساسية للوحة التحكم --- */
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --bg-main: #f1f5f9;
+            --bg-sidebar: #ffffff;
+            --text-dark: #1e293b;
+            --border: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-dark);
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* شريط التحكم العلوي والأزرار */
+        .top-bar {
+            background-color: #ffffff;
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .actions-btn {
+            display: flex;
+            gap: 10px;
+        }
+
+        button {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .btn-print { background-color: #22c55e; color: white; }
+        .btn-print:hover { background-color: #16a34a; }
+        .btn-demo { background-color: #64748b; color: white; }
+        .btn-demo:hover { background-color: #475569; }
+        .btn-clear { background-color: #ef4444; color: white; }
+        .btn-clear:hover { background-color: #dc2626; }
+
+        /* منطقة العمل الرئيسية (منقسمة لجزأين) */
+        .main-container {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        /* لوحة إدخال البيانات الجانبية */
+        .editor-side {
+            width: 400px;
+            background-color: var(--bg-sidebar);
+            border-left: 1px solid var(--border);
+            overflow-y: auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* منطقة معاينة الـ CV */
+        .preview-side {
+            flex: 1;
+            overflow-y: auto;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            background-color: #525659; /* لون رمادي يحاكي برامج الـ PDF */
+        }
+
+        /* اختيار القوالب الـ 8 */
+        .template-selector {
+            background: #f8fafc;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+        .template-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 5px;
+            margin-top: 8px;
+        }
+        .tmpl-btn {
+            padding: 6px;
+            font-size: 0.8rem;
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+        }
+        .tmpl-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* تصميم الفورم والمدخلات */
+        .form-section {
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+        .form-section h3 {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 5px;
+        }
+        .form-group {
+            margin-bottom: 12px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            margin-bottom: 4px;
+            font-weight: 500;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-size: 0.9rem;
+            outline: none;
+        }
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: var(--primary);
+        }
+
+        /* --- 2. ورقة الـ CV الافتراضية (A4) --- */
+        .cv-page {
+            width: 210mm;
+            min-height: 297mm;
+            background-color: #ffffff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            padding: 20mm;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        /* --- 3. قوالب وتنسيقات الـ CV المتنوعة (أمثلة مرنة) --- */
+        
+        /* [القالب 1: الكلاسيكي العادي] */
+        .template-1 .cv-header { border-bottom: 3px solid #333; padding-bottom: 10px; margin-bottom: 20px; }
+        .template-1 .cv-name { color: #111; font-size: 26px; }
+        .template-1 .section-title { color: #222; background: #eee; padding: 5px; margin: 15px 0 10px 0; }
+
+        /* [القالب 2: الأزرق الحديث] */
+        .template-2 .cv-header { background: #1e3a8a; color: white; padding: 20px; margin: -20mm -20mm 20px -20mm; text-align: center; }
+        .template-2 .cv-name { color: #ffffff; font-size: 28px; }
+        .template-2 .section-title { color: #1e3a8a; border-right: 4px solid #1e3a8a; padding-right: 8px; margin: 20px 0 10px 0; }
+
+        /* نمط محتوى الـ CV العام داخل الورقة */
+        .cv-title { font-size: 16px; color: #666; margin-bottom: 15px; }
+        .cv-section { margin-bottom: 20px; }
+        .cv-text { font-size: 14px; line-height: 1.6; white-space: pre-line; }
+
+        /* تكييف شاشات الجوال */
+        @media (max-width: 768px) {
+            body { overflow: auto; height: auto; }
+            .main-container { flex-direction: column; }
+            .editor-side { width: 100%; height: auto; overflow: visible; }
+            .preview-side { overflow-x: auto; padding: 10px; justify-content: flex-start; }
+            .cv-page { transform: scale(0.45); transform-origin: top right; width: 210mm; min-width: 210mm; }
+        }
+
+        /* --- 4. سحر أكواد الطباعة لـ A4 بدقة فائقة --- */
+        @media print {
+            body, .main-container, .preview-side {
+                background: none !important;
+                background-color: #ffffff !important;
+                overflow: visible !important;
+                display: block !important;
+                height: auto !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            .top-bar, .editor-side {
+                display: none !important; /* إخفاء لوحة التحكم والأزرار تماماً */
+            }
+            .cv-page {
+                box-shadow: none !important;
+                margin: 0 !important;
+                padding: 15mm !important; /* حواف الطباعة */
+                width: 210mm !important;
+                height: 297mm !important;
+                page-break-after: avoid;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- شاشات التحكم العلوية -->
+    <div class="top-bar">
+        <div class="logo">GetYourCV - لوحة التعديل الحية</div>
+        <div class="actions-btn">
+            <button class="btn-demo" onclick="loadDemoData()">تعبئة بيانات تجريبية</button>
+            <button class="btn-clear" onclick="clearData()">تفريغ الحقول</button>
+            <button class="btn-print" onclick="window.print()">طباعة / تصدير PDF 📄</button>
+        </div>
+    </div>
+
+    <!-- منطقة العمل -->
+    <div class="main-container">
+        
+        <!-- المدخلات الجانبية -->
+        <div class="editor-side">
+            
+            <!-- أزرار اختيار القوالب الثمانية -->
+            <div class="template-selector">
+                <label style="font-weight: bold; font-size: 0.9rem;">اختر نمط القالب الافتراضي:</label>
+                <div class="template-grid">
+                    <button class="tmpl-btn active" onclick="changeTemplate(1, this)">قالب 1</button>
+                    <button class="tmpl-btn" onclick="changeTemplate(2, this)">قالب 2</button>
+                    <button class="tmpl-btn" onclick="alert('جاهز لتركيب كود قالبك الثالث هنا')">قالب 3</button>
+                    <button class="tmpl-btn" onclick="alert('جاهز لتركيب كود قالبك الرابع هنا')">قالب 4</button>
+                    <button class="tmpl-btn" onclick="alert('جاهز لتركيب كود قالبك الخامس هنا')">قالب 5</button>
+                    <button class="tmpl-btn" onclick="alert('جاهز لتركيب كود قالبك السادس هنا')">قالب 6</button>
+                    <button class="tmpl-btn" onclick="alert('جاهز لتركيب كود قالبك السابع هنا')">قالب 7</button>
+                    <button class="tmpl-btn" onclick="alert('جاهز لتركيب كود قالبك الثامن هنا')">قالب 8</button>
+                </div>
+            </div>
+
+            <!-- معلومات شخصية -->
+            <div class="form-section">
+                <h3>المعلومات الشخصية</h3>
+                <div class="form-group">
+                    <label>الاسم الكامل</label>
+                    <input type="text" id="in-name" oninput="updateCV()" placeholder="مثال: عمار محمد">
+                </div>
+                <div class="form-group">
+                    <label>المسمى الوظيفي</label>
+                    <input type="text" id="in-title" oninput="updateCV()" placeholder="مثال: مطور ويب فرونت إند">
+                </div>
+            </div>
+
+            <!-- النبذة المهنية -->
+            <div class="form-section">
+                <h3>النبذة الشخصية</h3>
+                <div class="form-group">
+                    <label>عنّي</label>
+                    <textarea id="in-about" rows="4" oninput="updateCV()" placeholder="اكتب ملخص خبراتك هنا..."></textarea>
+                </div>
+            </div>
+
+            <!-- الخبرات والمهارات -->
+            <div class="form-section">
+                <h3>الخبرات والمهارات</h3>
+                <div class="form-group">
+                    <label>الخبرات المهنية</label>
+                    <textarea id="in-experience" rows="5" oninput="updateCV()" placeholder="شركة كذا (2024 - 2026): تفاصيل العمل..."></textarea>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- المعاينة الحية للـ CV ورقة A4 -->
+        <div class="preview-side">
+            <div id="cv-target" class="cv-page template-1">
+                
+                <div class="cv-header">
+                    <h1 class="cv-name" id="cv-name">الاسم الكامل يظهر هنا</h1>
+                    <div class="cv-title" id="cv-title">المسمى الوظيفي هنا</div>
+                </div>
+
+                <div class="cv-section">
+                    <h2 class="section-title">الملخص المهني</h2>
+                    <p class="cv-text" id="cv-about">هنا سيظهر الكلام والنبذة التعريفية التي تقوم بكتابتها في لوحة التحكم فوراً ولحظة بلحظة.</p>
+                </div>
+
+                <div class="cv-section">
+                    <h2 class="section-title">الخبرة العملية</h2>
+                    <p class="cv-text" id="cv-experience">تفاصيل وظائفك السابقة ومشاريعك تترتب هنا بشكل منظم وقابل للطباعة.</p>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- جافا سكربت للتحكم الفوري وتعبئة البيانات الوهمية -->
+    <script>
+        // 1. التحديث اللحظي للبيانات
+        function updateCV() {
+            document.getElementById('cv-name').innerText = document.getElementById('in-name').value || 'الاسم الكامل يظهر هنا';
+            document.getElementById('cv-title').innerText = document.getElementById('in-title').value || 'المسمى الوظيفي هنا';
+            document.getElementById('cv-about').innerText = document.getElementById('in-about').value || 'هنا سيظهر الكلام والنبذة التعريفية...';
+            document.getElementById('cv-experience').innerText = document.getElementById('in-experience').value || 'تفاصيل وظائفك السابقة...';
+        }
+
+        // 2. التبديل بين القوالب الثمانية عبر الـ CSS Classes
+        function changeTemplate(id, element) {
+            // إزالة الكلاس الفعال من الأزرار
+            document.querySelectorAll('.tmpl-btn').forEach(btn => btn.classList.remove('active'));
+            element.classList.add('active');
+
+            // تغيير كلاس الـ CV لتطبيق الـ Style الخاص بالقالب المحدد
+            const cv = document.getElementById('cv-target');
+            cv.className = 'cv-page template-' + id;
+        }
+
+        // 3. زر تعبئة البيانات الوهمية للتجربة (Demo Data)
+        function loadDemoData() {
+            document.getElementById('in-name').value = 'عمار محمد بدوية';
+            document.getElementById('in-title').value = 'مطور واجهات أمامية محترف (Front-End Developer)';
+            document.getElementById('in-about').value = 'مطور ويب متخصص في بناء واجهات مستخدم سريعة، متجاوبة، ومتوافقة مع كافة الشاشات باستخدام أحدث المعايير البرمجية. أمتلك معرض أعمال متميز في بناء لوحات التحكم والمواقع التعريفية.';
+            document.getElementById('in-experience').value = '- مطور ويب مستقل على منصة مستقل (2025 - الحالي)\n- تصميم وتطوير لوحة تحكم متكاملة لإدارة السير الذاتية.\n- تطوير الموقع التعريفي لعيادة طبية متكاملة وصالون حلاقة ومتجر عود.';
+            updateCV();
+        }
+
+        // 4. زر تفريغ الحقول للكتابة لعميل حقيقي
+        function clearData() {
+            document.getElementById('in-name').value = '';
+            document.getElementById('in-title').value = '';
+            document.getElementById('in-about').value = '';
+            document.getElementById('in-experience').value = '';
+            updateCV();
+        }
+    </script>
+</body>
+</html>
