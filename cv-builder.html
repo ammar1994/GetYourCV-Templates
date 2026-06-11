@@ -3,124 +3,313 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>لوحة التحكم بالـ CV الاحترافية</title>
+    <title>منصة تصميم السير الذاتية الاحترافية</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --primary: #4A0E4E;
-            --primary-hover: #2A082C;
-            --bg-main: #f1f5f9;
-            --bg-sidebar: #ffffff;
-            --text-dark: #1e293b;
-            --border: #e2e8f0;
+            --bg-base: #0f172a;
+            --bg-surface: #1e293b;
+            --bg-input: #334155;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-purple: #c084fc;
+            --accent-gold: #fbbf24;
+            --accent-green: #34d399;
+            --accent-red: #f87171;
+            --border-glow: rgba(192, 132, 252, 0.2);
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: var(--bg-main); color: var(--text-dark); display: flex; flex-direction: column; height: 100vh; overflow: hidden; }
-
-        .top-bar {
-            background-color: #ffffff; padding: 15px 20px; border-bottom: 1px solid var(--border);
-            display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; z-index: 10;
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Tajawal', sans-serif;
         }
-        .logo { font-size: 1.2rem; font-weight: bold; color: var(--primary); }
-        .actions-btn { display: flex; gap: 10px; }
 
-        button { padding: 8px 16px; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; transition: all 0.2s ease; }
-        .btn-print { background-color: #22c55e; color: white; }
-        .btn-print:hover { background-color: #16a34a; }
-        .btn-demo { background-color: #64748b; color: white; }
-        .btn-clear { background-color: #ef4444; color: white; }
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+        }
 
-        .main-container { display: flex; flex: 1; overflow: hidden; }
+        /* بار علوي فخم */
+        .premium-header {
+            background: linear-gradient(90deg, #1e293b, #0f172a);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 18px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            z-index: 100;
+        }
 
-        .editor-side { width: 380px; background-color: var(--bg-sidebar); border-left: 1px solid var(--border); overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 18px; }
-        .preview-side { flex: 1; padding: 20px; display: flex; justify-content: center; background-color: #525659; overflow-y: auto; }
+        .brand-title {
+            font-size: 1.4rem;
+            font-weight: 900;
+            background: linear-gradient(to left, var(--accent-purple), var(--accent-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 0.5px;
+        }
 
-        .cv-iframe { width: 210mm; height: 297mm; background-color: #ffffff; border: none; box-shadow: 0 4px 12px rgba(0,0,0,0.4); }
+        .control-actions {
+            display: flex;
+            gap: 12px;
+        }
 
-        .template-selector { background: #f8fafc; padding: 12px; border-radius: 8px; border: 1px solid var(--border); }
-        .template-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: 8px; }
-        .tmpl-btn { padding: 8px 5px; font-size: 0.8rem; background: #ffffff; border: 1px solid var(--border); border-radius: 4px; text-align: center; font-weight: bold; cursor: pointer; color: #4C4F5A; }
-        .tmpl-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+        .prm-btn {
+            padding: 10px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
 
-        .form-section { background: #f8fafc; padding: 15px; border-radius: 8px; border: 1px solid var(--border); }
-        .form-section h3 { font-size: 0.95rem; margin-bottom: 10px; color: var(--primary); border-bottom: 2px solid var(--border); padding-bottom: 5px; }
-        .form-group { margin-bottom: 12px; }
-        .form-group label { display: block; font-size: 0.8rem; margin-bottom: 4px; font-weight: 600; }
-        .form-group input, .form-group textarea { width: 100%; padding: 8px; border: 1px solid var(--border); border-radius: 4px; font-size: 0.85rem; outline: none; }
-        .form-group input:focus, .form-group textarea:focus { border-color: var(--primary); }
+        .btn-magic { background: linear-gradient(135deg, #6366f1, #a855f7); color: white; border: none; }
+        .btn-magic:hover { transform: translateY(-2px); box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4); }
+        
+        .btn-download { background-color: #10b981; color: white; border: none; }
+        .btn-download:hover { transform: translateY(-2px); box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4); }
 
-        @media (max-width: 768px) {
+        .btn-reset { background-color: rgba(244, 63, 94, 0.1); color: var(--accent-red); border: 1px solid rgba(244, 63, 94, 0.2); }
+        .btn-reset:hover { background-color: rgba(244, 63, 94, 0.2); }
+
+        /* حاوية العمل الرئيسية */
+        .workspace {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        /* قسم التحكم الجانبي */
+        .sidebar-editor {
+            width: 420px;
+            background-color: var(--bg-surface);
+            border-left: 1px solid rgba(255, 255, 255, 0.05);
+            overflow-y: auto;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            box-shadow: 10px 0 30px rgba(0,0,0,0.2);
+        }
+
+        /* تصنيف وهندسة القوالب */
+        .category-wrapper {
+            background: rgba(15, 23, 42, 0.4);
+            padding: 16px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .panel-label {
+            font-size: 0.85rem;
+            color: var(--accent-gold);
+            font-weight: 700;
+            margin-bottom: 12px;
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .template-matrix {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+
+        .matrix-btn {
+            background-color: var(--bg-input);
+            color: var(--text-main);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 12px 14px;
+            border-radius: 8px;
+            text-align: right;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .matrix-btn:hover {
+            background-color: #475569;
+            border-color: var(--accent-purple);
+        }
+
+        .matrix-btn.active {
+            background: linear-gradient(135deg, #4c1d95, #6d28d9);
+            border-color: var(--accent-purple);
+            box-shadow: 0 0 12px var(--border-glow);
+            font-weight: 700;
+        }
+
+        /* حقول الإدخال الفخمة */
+        .glass-section {
+            background: rgba(15, 23, 42, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .glass-section h3 {
+            font-size: 1rem;
+            color: var(--accent-purple);
+            margin-bottom: 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .input-unit {
+            margin-bottom: 14px;
+        }
+
+        .input-unit label {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+            font-weight: 500;
+        }
+
+        .input-unit input, .input-unit textarea {
+            width: 100%;
+            background-color: var(--bg-input);
+            color: var(--text-main);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 10px 12px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            outline: none;
+            transition: all 0.2s ease;
+        }
+
+        .input-unit input:focus, .input-unit textarea:focus {
+            border-color: var(--accent-purple);
+            box-shadow: 0 0 8px var(--border-glow);
+            background-color: #475569;
+        }
+
+        /* مسرح العرض السيمائي للـ CV */
+        .cinema-preview-zone {
+            flex: 1;
+            background-color: #0b0f19;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 40px;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .cinema-preview-zone::before {
+            content: 'معاينة حية للملف الفخم';
+            position: absolute;
+            top: 12px;
+            left: 20px;
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.15);
+            letter-spacing: 2px;
+            font-weight: bold;
+        }
+
+        .luxury-iframe {
+            width: 210mm;
+            height: 297mm;
+            background-color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+            transform-origin: top center;
+            transition: transform 0.3s ease;
+        }
+
+        /* دعم التجاوب الكامل للهواتف الذكية */
+        @media (max-width: 1024px) {
             body { overflow: auto; height: auto; }
-            .main-container { flex-direction: column; }
-            .editor-side { width: 100%; height: auto; }
-            .preview-side { padding: 5px; overflow-x: auto; height: 600px; }
-            .cv-iframe { width: 210mm; height: 297mm; transform: scale(0.42); transform-origin: top center; }
+            .workspace { flex-direction: column; }
+            .sidebar-editor { width: 100%; height: auto; box-shadow: none; }
+            .cinema-preview-zone { padding: 15px 5px; height: 520px; overflow-x: auto; }
+            .luxury-iframe { transform: scale(0.45); }
         }
     </style>
 </head>
 <body>
 
-    <div class="top-bar">
-        <div class="logo">لوحة تحديث القوالب الاحترافية الحية</div>
-        <div class="actions-btn">
-            <button class="btn-demo" onclick="loadDemoData()">تعبئة بيانات تجريبية</button>
-            <button class="btn-clear" onclick="clearData()">تفريغ الحقول</button>
-            <button class="btn-print" onclick="printCV()">طباعة / تصدير PDF 📄</button>
+    <header class="premium-header">
+        <div class="brand-title">AMMAR BADAWIEH | STUDIO</div>
+        <div class="control-actions">
+            <button class="prm-btn btn-magic" onclick="loadDemoData()">✨ تعبئة ذكية للملف</button>
+            <button class="prm-btn btn-reset" onclick="clearData()">تفريغ</button>
+            <button class="prm-btn btn-download" onclick="printCV()">تصدير كملف جاهز للطباعة 📄</button>
         </div>
-    </div>
+    </header>
 
-    <div class="main-container">
-        <div class="editor-side">
+    <div class="workspace">
+        <div class="sidebar-editor">
             
-            <div class="template-selector">
-                <label style="font-weight: bold; font-size: 0.85rem;">اختر قالبك الاحترافي للعرض:</label>
-                <div class="template-grid">
-                    <button class="tmpl-btn active" onclick="loadTemplate('index2.html', this)">القالب البنفسجي الاحترافي</button>
-                    <button class="tmpl-btn" onclick="loadTemplate('index4.html', this)">قالب 4 الاحترافي</button>
-                    <button class="tmpl-btn" onclick="loadTemplate('index5.html', this)">قالب 5 الاحترافي</button>
-                    <button class="tmpl-btn" onclick="loadTemplate('template2_en.html', this)">قالب 2 إنجليزي</button>
-                    <button class="tmpl-btn" onclick="loadTemplate('template3.html', this)">قالب 3 عربي</button>
-                    <button class="tmpl-btn" onclick="loadTemplate('template3-en.html', this)">قالب 3 إنجليزي</button>
-                    <button class="tmpl-btn" onclick="loadTemplate('template4-en.html', this)">قالب 4 إنجليزي</button>
-                    <button class="tmpl-btn" onclick="loadTemplate('template5-en.html', this)">قالب 5 إنجليزي</button>
+            <div class="category-wrapper">
+                <span class="panel-label">اختر تخصص القالب المستهدف:</span>
+                <div class="template-matrix">
+                    <button class="matrix-btn active" onclick="loadTemplate('index2.html', this)">قالب 1: النمط التنفيذي (للمهندسين والمعماريين)</button>
+                    <button class="matrix-btn" onclick="loadTemplate('index4.html', this)">قالب 2: النمط العصري (للمبرمجين والتقنيين)</button>
+                    <button class="matrix-btn" onclick="loadTemplate('index5.html', this)">قالب 3: النمط الإبداعي (للمصممين وصناع المحتوى)</button>
+                    <button class="matrix-btn" onclick="loadTemplate('template3.html', this)">قالب 4: النمط الكلاسيكي (للأطباء والمحامين)</button>
+                    <button class="matrix-btn" onclick="loadTemplate('template2_en.html', this)">قالب 5: النمط الأكاديمي الإنجليزي (للجامعيين)</button>
+                    <button class="matrix-btn" onclick="loadTemplate('template3-en.html', this)">قالب 6: النمط المالي الإنجليزي (المحاسبة والإدارة)</button>
+                    <button class="matrix-btn" onclick="loadTemplate('template4-en.html', this)">قالب 7: النمط الطبي الإنجليزي (المستشفيات والعلوم)</button>
+                    <button class="matrix-btn" onclick="loadTemplate('template5-en.html', this)">قالب 8: النمط التقني الإنجليزي (هندسة البرمجيات)</button>
                 </div>
             </div>
 
-            <div class="form-section">
-                <h3>المعلومات الشخصية</h3>
-                <div class="form-group"><label>الاسم الكامل</label><input type="text" id="in-name" oninput="sendDataToTemplate()" placeholder="مثال: عمار محمد بدوية"></div>
-                <div class="form-group"><label>المسمى الوظيفي</label><input type="text" id="in-title" oninput="sendDataToTemplate()" placeholder="مثال: مطور واجهات أمامية محترف"></div>
-                <div class="form-group"><label>الملخص المهني</label><textarea id="in-about" rows="3" oninput="sendDataToTemplate()" placeholder="نبذة مختصرة عن مهاراتك وخبراتك..."></textarea></div>
+            <div class="glass-section">
+                <h3>البيانات الأساسية</h3>
+                <div class="input-unit"><label>الاسم الكامل</label><input type="text" id="in-name" oninput="sendDataToTemplate()" placeholder="مثال: سارة عبد الرحمن التميمي"></div>
+                <div class="input-unit"><label>المسمى الوظيفي المستهدف</label><input type="text" id="in-title" oninput="sendDataToTemplate()" placeholder="مثال: مهندسة معمارية ومصممة مساحات"></div>
+                <div class="input-unit"><label>الخلاصة الإبداعية / التنفيدية</label><textarea id="in-about" rows="4" oninput="sendDataToTemplate()" placeholder="نبذة تعكس قوتك وخبراتك..."></textarea></div>
             </div>
 
-            <div class="form-section">
-                <h3>بيانات التواصل المستهدفة</h3>
-                <div class="form-group"><label>رقم الهاتف</label><input type="text" id="in-phone" oninput="sendDataToTemplate()" placeholder="مثال: +963 930 000 000"></div>
-                <div class="form-group"><label>البريد الإلكتروني</label><input type="text" id="in-email" oninput="sendDataToTemplate()" placeholder="مثال: ammar@example.com"></div>
-                <div class="form-group"><label>رابط المحفظة/الموقع</label><input type="text" id="in-link" oninput="sendDataToTemplate()" placeholder="مثال: portfolio.com"></div>
+            <div class="glass-section">
+                <h3>روابط التواصل السريع</h3>
+                <div class="input-unit"><label>رقم الهاتف الدولي</label><input type="text" id="in-phone" oninput="sendDataToTemplate()" placeholder="+966 50 000 0000"></div>
+                <div class="input-unit"><label>البريد الإلكتروني المهني</label><input type="text" id="in-email" oninput="sendDataToTemplate()" placeholder="name@domain.com"></div>
+                <div class="input-unit"><label>رابط منصة الأعمال أو الموقع</label><input type="text" id="in-link" oninput="sendDataToTemplate()" placeholder="portfolio.com"></div>
             </div>
 
-            <div class="form-section">
-                <h3>الخبرات والتعليم</h3>
-                <div class="form-group"><label>تفاصيل الخبرة العملية</label><textarea id="in-experience" rows="4" oninput="sendDataToTemplate()" placeholder="اكتب خبراتك هنا..."></textarea></div>
-                <div class="form-group"><label>التعليم الأكاديمي</label><textarea id="in-education" rows="3" oninput="sendDataToTemplate()" placeholder="الجامعة والشهادات..."></textarea></div>
+            <div class="glass-section">
+                <h3>المسار المهني والأكاديمي</h3>
+                <div class="input-unit"><label>الخبرات العملية السابقة</label><textarea id="in-experience" rows="5" oninput="sendDataToTemplate()" placeholder="الشركات والمسؤوليات البرمجية والتصميمية..."></textarea></div>
+                <div class="input-unit"><label>المؤهلات العلمية</label><textarea id="in-education" rows="3" oninput="sendDataToTemplate()" placeholder="الشهادات الأكاديمية والجامعات..."></textarea></div>
             </div>
 
-            <div class="form-section">
-                <h3>المهارات الاحترافية</h3>
-                <div class="form-group"><label>المهارات (افصل بينها بفاصلة ,)</label><input type="text" id="in-skills" oninput="sendDataToTemplate()" placeholder="مثال: HTML5, CSS3, Flexbox, UI/UX"></div>
+            <div class="glass-section">
+                <h3>الجدارات الفنية</h3>
+                <div class="input-unit"><label>المهارات الرئيسية (افصل بينها بـ , )</label><input type="text" id="in-skills" oninput="sendDataToTemplate()" placeholder="مثال: UI/UX, AutoCAD, HTML5, CSS Grid"></div>
             </div>
 
         </div>
 
-        <div class="preview-side">
-            <iframe id="cv-frame" class="cv-iframe" src="index2.html"></iframe>
+        <div class="cinema-preview-zone">
+            <iframe id="cv-frame" class="luxury-iframe" src="index2.html"></iframe>
         </div>
     </div>
 
     <script>
         function loadTemplate(fileName, buttonElement) {
-            document.querySelectorAll('.tmpl-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.matrix-btn').forEach(btn => btn.classList.remove('active'));
             buttonElement.classList.add('active');
             const iframe = document.getElementById('cv-frame');
             iframe.src = fileName;
@@ -147,15 +336,15 @@
         }
 
         function loadDemoData() {
-            document.getElementById('in-name').value = 'عمار محمد بدوية';
-            document.getElementById('in-title').value = 'مطور واجهات أمامية محترف (Front-End)';
-            document.getElementById('in-about').value = 'مطور ويب متخصص في بناء واجهات مستخدم سريعة، متجاوبة، ومتوافقة مع كافة الشاشات باستخدام أحدث المعايير البرمجية HTML5 و CSS3.';
-            document.getElementById('in-phone').value = '+963 930 000 000';
-            document.getElementById('in-email').value = 'ammar@example.com';
-            document.getElementById('in-link').value = 'medical-clinic-pi.vercel.app';
-            document.getElementById('in-experience').value = 'مسؤول عن بناء وتطوير الهويات البصرية الكاملة لتطبيقات الويب الحديثة، وتحسين رحلة المستخدم، وإنجاز مشروع موقع عيادة طبية وصالون حلاقة ومتجر عود بنجاح.';
-            document.getElementById('in-education').value = 'شهادة في تطوير واجهات الويب الأمامية (Front-End Development) - ممارسات مكثفة لبناء المشاريع المستقلة وحل مشاكل الأكواد وتجاوب الشاشات.';
-            document.getElementById('in-skills').value = 'HTML5, CSS3, Flexbox, CSS Grid, Responsive Web Design, Git & GitHub';
+            document.getElementById('in-name').value = 'سارة عبد الرحمن التميمي';
+            document.getElementById('in-title').value = 'مهندسة معمارية ومصممة مساحات داخلية مستدامة';
+            document.getElementById('in-about').value = 'مهندسة معمارية تمتلك شغفاً كبيراً في دمج الجمالية البسيطة والوظيفة العملية الكاملة، معتمدة على استغلال الإضاءة الطبيعية والمواد الصديقة للبيئة.';
+            document.getElementById('in-phone').value = '+966 50 000 0000';
+            document.getElementById('in-email').value = 'sara.architect@email.com';
+            document.getElementById('in-link').value = 'sara-portfolio.vercel.app';
+            document.getElementById('in-experience').value = 'مجموعة التصاميم الهندسية الكبرى:\nإدارة وتخطيط المساحات السكنية والتجارية الفاخرة والإشراف المباشر على التنفيذ.\n\nمكتب المخططون المستدامون:\nتطوير مجسمات ثلاثية الأبعاد وتقديم حلول معمارية ذكية حازت على رضا 95% من العملاء.';
+            document.getElementById('in-education').value = 'بكالوريوس الهندسة المعمارية والتصميم الداخلي\nجامعة الملك سعود - مرتبة الشرف الأولى (2018 - 2023)';
+            document.getElementById('in-skills').value = 'التخطيط المعماري, التصميم الداخلي, AutoCAD, 3ds Max, مهارات التواصل, إدارة المشاريع الهندسية';
             sendDataToTemplate();
         }
 
