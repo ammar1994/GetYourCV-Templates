@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>لوحة تحكم السيرة الذاتية الاحترافية</title>
+    <title>لوحة التحكم بالـ CV الاحترافية</title>
     <style>
         :root {
             --primary: #4A0E4E;
@@ -39,7 +39,7 @@
 
         .template-selector { background: #f8fafc; padding: 12px; border-radius: 8px; border: 1px solid var(--border); }
         .template-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: 8px; }
-        .tmpl-btn { padding: 8px 5px; font-size: 0.8rem; background: #ffffff; border: 1px solid var(--border); border-radius: 4px; text-align: center; font-weight: bold; cursor: pointer; }
+        .tmpl-btn { padding: 8px 5px; font-size: 0.8rem; background: #ffffff; border: 1px solid var(--border); border-radius: 4px; text-align: center; font-weight: bold; cursor: pointer; color: #4C4F5A; }
         .tmpl-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
 
         .form-section { background: #f8fafc; padding: 15px; border-radius: 8px; border: 1px solid var(--border); }
@@ -61,7 +61,7 @@
 <body>
 
     <div class="top-bar">
-        <div class="logo">لوحة التحكم والتعبئة التفاعلية</div>
+        <div class="logo">لوحة تحديث القوالب الاحترافية الحية</div>
         <div class="actions-btn">
             <button class="btn-demo" onclick="loadDemoData()">تعبئة بيانات تجريبية</button>
             <button class="btn-clear" onclick="clearData()">تفريغ الحقول</button>
@@ -73,36 +73,42 @@
         <div class="editor-side">
             
             <div class="template-selector">
-                <label style="font-weight: bold; font-size: 0.85rem;">اختر القالب للعرض:</label>
+                <label style="font-weight: bold; font-size: 0.85rem;">اختر قالبك الاحترافي للعرض:</label>
                 <div class="template-grid">
                     <button class="tmpl-btn active" onclick="loadTemplate('index2.html', this)">القالب البنفسجي الاحترافي</button>
+                    <button class="tmpl-btn" onclick="loadTemplate('index4.html', this)">قالب 4 الاحترافي</button>
+                    <button class="tmpl-btn" onclick="loadTemplate('index5.html', this)">قالب 5 الاحترافي</button>
+                    <button class="tmpl-btn" onclick="loadTemplate('template2_en.html', this)">قالب 2 إنجليزي</button>
+                    <button class="tmpl-btn" onclick="loadTemplate('template3.html', this)">قالب 3 عربي</button>
+                    <button class="tmpl-btn" onclick="loadTemplate('template3-en.html', this)">قالب 3 إنجليزي</button>
+                    <button class="tmpl-btn" onclick="loadTemplate('template4-en.html', this)">قالب 4 إنجليزي</button>
+                    <button class="tmpl-btn" onclick="loadTemplate('template5-en.html', this)">قالب 5 إنجليزي</button>
                 </div>
             </div>
 
             <div class="form-section">
                 <h3>المعلومات الشخصية</h3>
-                <div class="form-group"><label>رابط الصورة الشخصية (URL)</label><input type="text" id="in-img" oninput="sendDataToTemplate()" placeholder="ضع رابط الصورة هنا"></div>
-                <div class="form-group"><label>الاسم الكامل</label><input type="text" id="in-name" oninput="sendDataToTemplate()" placeholder="مثال: سارة عبد الرحمن التميمي"></div>
-                <div class="form-group"><label>المسمى الوظيفي</label><input type="text" id="in-title" oninput="sendDataToTemplate()" placeholder="مثال: مهندسة معمارية ومصممة"></div>
-                <div class="form-group"><label>الملخص المهني / التنفيذي</label><textarea id="in-about" rows="3" oninput="sendDataToTemplate()" placeholder="اكتب ملخصك المهني هنا..."></textarea></div>
+                <div class="form-group"><label>الاسم الكامل</label><input type="text" id="in-name" oninput="sendDataToTemplate()" placeholder="مثال: عمار محمد بدوية"></div>
+                <div class="form-group"><label>المسمى الوظيفي</label><input type="text" id="in-title" oninput="sendDataToTemplate()" placeholder="مثال: مطور واجهات أمامية محترف"></div>
+                <div class="form-group"><label>الملخص المهني</label><textarea id="in-about" rows="3" oninput="sendDataToTemplate()" placeholder="نبذة مختصرة عن مهاراتك وخبراتك..."></textarea></div>
             </div>
 
             <div class="form-section">
-                <h3>قنوات التواصل المباشر</h3>
-                <div class="form-group"><label>رقم الهاتف</label><input type="text" id="in-phone" oninput="sendDataToTemplate()" placeholder="الهاتف"></div>
-                <div class="form-group"><label>البريد الإلكتروني</label><input type="text" id="in-email" oninput="sendDataToTemplate()" placeholder="البريد"></div>
-                <div class="form-group"><label>الموقع الشخصي / المعرض</label><input type="text" id="in-link" oninput="sendDataToTemplate()" placeholder="المعرض"></div>
+                <h3>بيانات التواصل المستهدفة</h3>
+                <div class="form-group"><label>رقم الهاتف</label><input type="text" id="in-phone" oninput="sendDataToTemplate()" placeholder="مثال: +963 930 000 000"></div>
+                <div class="form-group"><label>البريد الإلكتروني</label><input type="text" id="in-email" oninput="sendDataToTemplate()" placeholder="مثال: ammar@example.com"></div>
+                <div class="form-group"><label>رابط المحفظة/الموقع</label><input type="text" id="in-link" oninput="sendDataToTemplate()" placeholder="مثال: portfolio.com"></div>
             </div>
 
             <div class="form-section">
                 <h3>الخبرات والتعليم</h3>
-                <div class="form-group"><label>تفاصيل الخبرة العملية (يمكنك إضافة مهام متعددة)</label><textarea id="in-experience" rows="4" oninput="sendDataToTemplate()" placeholder="الخبرات المهنية..."></textarea></div>
-                <div class="form-group"><label>المؤهلات والتعليم الأكاديمي</label><textarea id="in-education" rows="3" oninput="sendDataToTemplate()" placeholder="التعليم..."></textarea></div>
+                <div class="form-group"><label>تفاصيل الخبرة العملية</label><textarea id="in-experience" rows="4" oninput="sendDataToTemplate()" placeholder="اكتب خبراتك هنا..."></textarea></div>
+                <div class="form-group"><label>التعليم الأكاديمي</label><textarea id="in-education" rows="3" oninput="sendDataToTemplate()" placeholder="الجامعة والشهادات..."></textarea></div>
             </div>
 
             <div class="form-section">
-                <h3>القدرات والبرامج الهندسية</h3>
-                <div class="form-group"><label>المهارات (افصل بينها بفاصلة ,)</label><input type="text" id="in-skills" oninput="sendDataToTemplate()" placeholder="مثال: تصميم داخلي, AutoCAD, 3ds Max"></div>
+                <h3>المهارات الاحترافية</h3>
+                <div class="form-group"><label>المهارات (افصل بينها بفاصلة ,)</label><input type="text" id="in-skills" oninput="sendDataToTemplate()" placeholder="مثال: HTML5, CSS3, Flexbox, UI/UX"></div>
             </div>
 
         </div>
@@ -118,12 +124,12 @@
             buttonElement.classList.add('active');
             const iframe = document.getElementById('cv-frame');
             iframe.src = fileName;
+            
             iframe.onload = function() { sendDataToTemplate(); };
         }
 
         function sendDataToTemplate() {
             const data = {
-                img: document.getElementById('in-img').value,
                 name: document.getElementById('in-name').value,
                 title: document.getElementById('in-title').value,
                 about: document.getElementById('in-about').value,
@@ -141,25 +147,24 @@
         }
 
         function loadDemoData() {
-            document.getElementById('in-img').value = 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150&h=150';
-            document.getElementById('in-name').value = 'سارة عبد الرحمن التميمي';
-            document.getElementById('in-title').value = 'مهندسة معمارية ومصممة مساحات داخلية مستدامة';
-            document.getElementById('in-about').value = 'مصممة معمارية شغوفة بابتكار مساحات سكنية وتجارية تجمع بين الجمالية البسيطة والوظيفة العملية الكاملة، معتمدة على استغلال الإضاءة الطبيعية.';
-            document.getElementById('in-phone').value = '+966 50 000 0000';
-            document.getElementById('in-email').value = 'sara@studio.com';
-            document.getElementById('in-link').value = 'behance.net/sara';
-            document.getElementById('in-experience').value = 'مستشارة تصميم داخلي أول - استوديو خطوط التصميم المعماري (2023 - الحالي):\nالإشراف على تنفيذ 12 مشروعاً سكنياً فاخراً وتنسيق توزيع المساحات واختيار المواد والخامات.\n\nمهندسة معمارية تنفيذية - شركة التعمير والإنشاءات الحديثة (2020 - 2023):\nتطوير المخططات الهندسية التفصيلية ثنائية وثلاثية الأبعاد ومتابعة مطابقتها مع فرق التنفيذ.';
-            document.getElementById('in-education').value = 'بكالوريوس الهندسة المعمارية والتصميم المستدام\nجامعة الفنون والعلوم الهندسية (2015 - 2020)';
-            document.getElementById('in-skills').value = 'التخطيط المعماري (AutoCAD), النمذجة ثلاثية الأبعاد (3ds Max), اختيار المواد والخامات, التصميم البيئي المستدام';
+            document.getElementById('in-name').value = 'عمار محمد بدوية';
+            document.getElementById('in-title').value = 'مطور واجهات أمامية محترف (Front-End)';
+            document.getElementById('in-about').value = 'مطور ويب متخصص في بناء واجهات مستخدم سريعة، متجاوبة، ومتوافقة مع كافة الشاشات باستخدام أحدث المعايير البرمجية HTML5 و CSS3.';
+            document.getElementById('in-phone').value = '+963 930 000 000';
+            document.getElementById('in-email').value = 'ammar@example.com';
+            document.getElementById('in-link').value = 'medical-clinic-pi.vercel.app';
+            document.getElementById('in-experience').value = 'مسؤول عن بناء وتطوير الهويات البصرية الكاملة لتطبيقات الويب الحديثة، وتحسين رحلة المستخدم، وإنجاز مشروع موقع عيادة طبية وصالون حلاقة ومتجر عود بنجاح.';
+            document.getElementById('in-education').value = 'شهادة في تطوير واجهات الويب الأمامية (Front-End Development) - ممارسات مكثفة لبناء المشاريع المستقلة وحل مشاكل الأكواد وتجاوب الشاشات.';
+            document.getElementById('in-skills').value = 'HTML5, CSS3, Flexbox, CSS Grid, Responsive Web Design, Git & GitHub';
             sendDataToTemplate();
         }
 
         function clearData() {
-            document.getElementById('in-img').value = ''; document.getElementById('in-name').value = ''; 
-            document.getElementById('in-title').value = ''; document.getElementById('in-about').value = '';
-            document.getElementById('in-phone').value = ''; document.getElementById('in-email').value = '';
-            document.getElementById('in-link').value = ''; document.getElementById('in-experience').value = '';
-            document.getElementById('in-education').value = ''; document.getElementById('in-skills').value = '';
+            document.getElementById('in-name').value = ''; document.getElementById('in-title').value = '';
+            document.getElementById('in-about').value = ''; document.getElementById('in-phone').value = '';
+            document.getElementById('in-email').value = ''; document.getElementById('in-link').value = '';
+            document.getElementById('in-experience').value = ''; document.getElementById('in-education').value = '';
+            document.getElementById('in-skills').value = '';
             sendDataToTemplate();
         }
 
