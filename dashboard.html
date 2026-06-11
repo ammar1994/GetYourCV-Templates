@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GetYourCV - معرض القوالب الاحترافي</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@500;700;900&display=swap');
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Tajawal', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: #0b0f19;
+            color: #f3f4f6;
+            min-height: 100vh;
+            padding: 30px 15px;
+        }
+
+        .showcase-header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .showcase-header h1 {
+            font-size: 1.8rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #6366f1, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+        }
+
+        .showcase-header p {
+            font-size: 0.9rem;
+            color: #9ca3af;
+        }
+
+        .gallery-container {
+            max-width: 700px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .group-container {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 16px;
+        }
+
+        .group-title {
+            font-size: 1rem;
+            color: #818cf8;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        /* هذا هو السر الذي جعل الصناديق تقف جنب بعضها في الصورة الناجحة */
+        .templates-row {
+            display: flex;
+            gap: 12px; 
+            width: 100%;
+        }
+
+        .template-card {
+            flex: 1;
+            background: #111827;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            padding: 14px;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.2s ease;
+        }
+
+        .template-card:active {
+            border-color: #6366f1;
+            background: #1e1b4b;
+        }
+
+        .card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .template-name {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .lang-tag {
+            font-size: 0.65rem;
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+        .lang-tag.ar { background-color: #b45309; color: #fff; }
+        .lang-tag.en { background-color: #0284c7; color: #fff; }
+
+        .template-style {
+            font-size: 0.75rem;
+            color: #9ca3af;
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+
+        .action-text {
+            font-size: 0.75rem;
+            color: #38bdf8;
+            font-weight: bold;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="showcase-header">
+        <h1>معرض قوالب GetYourCV</h1>
+        <p>اختر وافتح القالب بملء الشاشة في صفحة مستقلة</p>
+    </header>
+
+    <div class="gallery-container">
+
+        <!-- حزمة القالب الثاني (عربي + إنجليزي جنب بعض) -->
+        <div class="group-container">
+            <div class="group-title">المجموعة الثانية ✦ Modern</div>
+            <div class="templates-row">
+                <!-- تم إجبار الروابط على الفتح الكامل في صفحة مستقلة تماماً لكسر أي كاش قديم -->
+                <a href="index2.html?update=final_full" target="_top" class="template-card">
+                    <div class="card-top">
+                        <span class="template-name">قالب 2 العربي</span>
+                        <span class="lang-tag ar">AR</span>
+                    </div>
+                    <p class="template-style">تصميم عصري وجريء يدعم التميز البصري المباشر.</p>
+                    <div class="action-text">عرض ↗</div>
+                </a>
+                <a href="template2_en.html?update=final_full" target="_top" class="template-card">
+                    <div class="card-top">
+                        <span class="template-name">Template 2</span>
+                        <span class="lang-tag en">EN</span>
+                    </div>
+                    <p class="template-style">Modern layout tailored for tech positions.</p>
+                    <div class="action-text">Open ↗</div>
+                </a>
+            </div>
+        </div>
+
+        <!-- حزمة القالب الثالث (عربي + إنجليزي جنب بعض) -->
+        <div class="group-container">
+            <div class="group-title">المجموعة الثالثة ✦ Classic</div>
+            <div class="templates-row">
+                <a href="template3.html?update=final_full" target="_top" class="template-card">
+                    <div class="card-top">
+                        <span class="template-name">قالب 3 العربي</span>
+                        <span class="lang-tag ar">AR</span>
+                    </div>
+                    <p class="template-style">تنسيق كلاسيكي رسمي فخم للشركات المحلية.</p>
+                    <div class="action-text">عرض ↗</div>
+                </a>
+                <a href="template3-en.html?update=final_full" target="_top" class="template-card">
+                    <div class="card-top">
+                        <span class="template-name">Template 3</span>
+                        <span class="lang-tag en">EN</span>
+                    </div>
+                    <p class="template-style">Academic structure, 100% ATS-friendly.</p>
+                    <div class="action-text">Open ↗</div>
+                </a>
+            </div>
+        </div>
+
+        <!-- حزمة القالب الرابع (عربي + إنجليزي جنب بعض) -->
+        <div class="group-container">
+            <div class="group-title">المجموعة الرابعة ✦ Creative</div>
+            <div class="templates-row">
+                <a href="index4.html?update=final_full" target="_top" class="template-card">
+                    <div class="card-top">
+                        <span class="template-name">قالب 4 العربي</span>
+                        <span class="lang-tag ar">AR</span>
+                    </div>
+                    <p class="template-style">أسلوب إبداعي مبتكر لصناع المحتوى والمسوقين.</p>
+                    <div class="action-text">عرض ↗</div>
+                </a>
+                <a href="template4-en.html?update=final_full" target="_top" class="template-card">
+                    <div class="card-top">
+                        <span class="template-name">Template 4</span>
+                        <span class="lang-tag en">EN</span>
+                    </div>
+                    <p class="template-style">Highly visual design focused on personal branding.</p>
+                    <div class="action-text">Open ↗</div>
+                </a>
+            </div>
+        </div>
+
+        <!-- حزمة القالب الخامس (عربي + إنجليزي جنب بعض) -->
+        <div class="group-container">
+            <div class="group-title">المجموعة الخامسة ✦ Executive</div>
+            <div class="templates-row">
+                <a href="index5.html?update=final_full" target="_top" class="template-card">
+                    <div class="card-top">
+                        <span class="template-name">قالب 5 العربي</span>
+                        <span class="lang-tag ar">AR</span>
+                    </div>
+                    <p class="template-style">تخطيط عمودي مزدوج منظم لاستيعاب الخبرات.</p>
+                    <div class="action-text">عرض ↗</div>
+                </a>
+                <a href="template5-en.html?update=final_full" target="_top" class="template-card">
+                    <div class="card-top">
+                        <span class="template-name">Template 5</span>
+                        <span class="lang-tag en">EN</span>
+                    </div>
+                    <p class="template-style">Minimalist aesthetic with premium spacing.</p>
+                    <div class="action-text">Open ↗</div>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

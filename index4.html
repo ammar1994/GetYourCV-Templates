@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>السيرة الذاتية الاحترافية الفاخرة - القالب الرابع المطور</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* إعدادات التهيئة العامة */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background-color: #F4F6F8; /* خلفية حريرية باردة تبرز البطاقات */
+            padding: 30px 14px;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* حاوية التصميم التكتلي الفخم */
+        .premium-cv-wrapper {
+            width: 100%;
+            max-width: 720px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px; /* مسافة متناسقة وجذابة بين كتل المحتوى */
+        }
+
+        /* هيدر تكتلي ملكي مسحور */
+        .premium-header {
+            background-color: #ffffff;
+            border-radius: 16px;
+            padding: 30px 24px;
+            box-shadow: 0 10px 25px rgba(30, 41, 59, 0.04);
+            border-right: 6px solid #1E3A8A; /* عمود كحلي ملكي جانبي */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .premium-header:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(30, 41, 59, 0.08);
+        }
+
+        .header-text h1 {
+            color: #1E293B;
+            font-size: 25px;
+            font-weight: 900;
+            margin-bottom: 6px;
+        }
+
+        .header-text p {
+            color: #D97706; /* لمسة ذهبية للمسمى الوظيفي */
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        /* إطار الصورة الشخصية المطور بلمسة بريميوم */
+        .photo-slot {
+            width: 75px;
+            height: 75px;
+            background-color: #1E293B;
+            color: #ffffff;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 700;
+            border: 2px solid #D97706;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        /* كتل البطاقات المستقلة الطافية وتأثير التحويم الجديد */
+        .premium-card {
+            background-color: #ffffff;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 10px 25px rgba(30, 41, 59, 0.04);
+            border: 1px solid #E2E8F0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .premium-card:hover {
+            transform: translateY(-3px); /* ارتفاع تفاعلي سلس */
+            box-shadow: 0 15px 30px rgba(30, 41, 59, 0.08); /* تعميق الظل للحصول على بعد بصري مذهل */
+            border-color: #CBD5E1;
+        }
+
+        /* عناوين الأقسام بنمط الخط الممتد الكحلي والذهبي */
+        .section-main-title {
+            color: #1E293B;
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 2px solid #F1F5F9;
+            padding-bottom: 8px;
+        }
+
+        .section-main-title::before {
+            content: '';
+            width: 5px;
+            height: 15px;
+            background-color: #D97706; /* النقطة الذهبية الرمزية */
+            border-radius: 3px;
+        }
+
+        .desc-text {
+            color: #4A5568;
+            font-size: 13.5px;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        /* عناصر مسار الخبرة والتعليم الهندسي */
+        .timeline-block-item {
+            margin-bottom: 20px;
+            padding-right: 14px;
+            border-right: 3px solid #E2E8F0;
+            position: relative;
+            transition: border-color 0.3s ease;
+        }
+
+        .timeline-block-item:hover {
+            border-color: #1E3A8A; /* يتحول الفاصل للون الكحلي عند التركيز */
+        }
+
+        .timeline-block-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .item-top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 4px;
+        }
+
+        .item-main-role {
+            font-size: 14.5px;
+            color: #1E293B;
+            font-weight: 700;
+        }
+
+        .item-date-pill {
+            font-size: 11px;
+            background-color: #1E3A8A; /* شارة كحلية داكنة فاخرة للتاريخ */
+            color: #ffffff;
+            padding: 2px 10px;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+
+        .item-institution {
+            font-size: 12.5px;
+            color: #D97706; /* تمييز اسم الشركة أو الجامعة بالذهبي الهادئ */
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        /* شبكة بيانات الاتصال المقسمة بدقة هندسية مذهلة */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+        }
+
+        .contact-cell {
+            background-color: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            padding: 12px 14px;
+            border-radius: 10px;
+            font-size: 13px;
+            color: #4A5568;
+            display: flex;
+            justify-content: space-between;
+            transition: background-color 0.2s ease, border-color 0.2s ease;
+        }
+
+        .contact-cell:hover {
+            background-color: #F1F5F9;
+            border-color: #CBD5E1;
+        }
+
+        .contact-cell strong {
+            color: #1E293B;
+        }
+
+        .contact-cell span {
+            color: #1E3A8A;
+            font-weight: 600;
+        }
+
+        /* شبكة أشرطة المهارات الحيوية الملونة والموزعة مع التوهج المضاف */
+        .skills-progress-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-bar-container {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .skill-label-row {
+            font-size: 13px;
+            font-weight: 700;
+            color: #1E293B;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .track-line {
+            width: 100%;
+            height: 6px;
+            background-color: #E2E8F0;
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .fill-line {
+            height: 100%;
+            background: linear-gradient(to left, #1E3A8A, #3B82F6); /* تدرج أزرق حيوي ومقنع بصرياً */
+            border-radius: 4px;
+            box-shadow: 0 0 8px rgba(59, 130, 246, 0.5); /* تأثير التوهج الفاخر للأشرطة */
+        }
+
+        /* حماية التوافق والتجاوب التام على الجوال */
+        @media (max-width: 520px) {
+            .premium-header {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding: 20px;
+            }
+            .premium-header border-right {
+                border-right: none;
+                border-top: 6px solid #1E3A8A;
+            }
+            .photo-slot {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="premium-cv-wrapper">
+        
+        <div class="premium-header">
+            <div class="header-text">
+                <h1>سارة عبد الرحمن التميمي</h1>
+                <p>مهندسة معمارية ومصممة مساحات داخلية مستدامة</p>
+            </div>
+            <div class="photo-slot">صورة</div>
+        </div>
+
+        <div class="premium-card">
+            <div class="section-main-title">الملخص التنفيذي</div>
+            <p class="desc-text">مصممة معمارية شغوفة بابتكار مساحات سكنية وتجارية تجمع بين الجمالية البسيطة والوظيفة العملية الكاملة. أعتمد على استغلال الإضاءة الطبيعية والمواد المستدامة لخلق بيئات مريحة ومواكبة لأحدث صيحات الهندسة العالمية المستدامة.</p>
+        </div>
+
+        <div class="premium-card">
+            <div class="section-main-title">الخبرات المهنية والتنفيذية</div>
+            
+            <div class="timeline-block-item">
+                <div class="item-top-row">
+                    <span class="item-main-role">مستشارة تصميم داخلي أول</span>
+                    <span class="item-date-pill">2023 - الحالي</span>
+                </div>
+                <div class="item-institution">استوديو خطوط التصميم المعماري الدولي</div>
+                <p class="desc-text">الإشراف على تنفيذ 12 مشروعاً سكنياً فاخراً، وتنسيق توزيع المساحات واختيار المواد والخامات بما يتوافق مع رغبات العملاء وميزانياتهم المحددة.</p>
+            </div>
+
+            <div class="timeline-block-item">
+                <div class="item-top-row">
+                    <span class="item-main-role">مهندسة معمارية تنفيذية</span>
+                    <span class="item-date-pill">2020 - 2023</span>
+                </div>
+                <div class="item-institution">شركة التعمير والإنشاءات الحديثة</div>
+                <p class="desc-text">تطوير المخططات الهندسية التفصيلية ثنائية وثلاثية الأبعاد، ومتابعة مطابقتها مع فرق التنفيذ في مواقع العمل لضمان أعلى جودة مطابقة.</p>
+            </div>
+        </div>
+
+        <div class="premium-card">
+            <div class="section-main-title">المؤهلات والتعليم الأكاديمي</div>
+            <div class="timeline-block-item" style="border-right: none; padding-right: 0;">
+                <div class="item-top-row">
+                    <span class="item-main-role">بكالوريوس الهندسة المعمارية والتصميم المستدام</span>
+                    <span class="item-date-pill">2015 - 2020</span>
+                </div>
+                <div class="item-institution">جامعة الفنون والعلوم الهندسية</div>
+            </div>
+        </div>
+
+        <div class="premium-card">
+            <div class="section-main-title">الالقدرات والبرامج الهندسية</div>
+            <div class="skills-progress-grid">
+                <div class="skill-bar-container">
+                    <div class="skill-label-row"><span>التخطيط المعماري (AutoCAD)</span> <span>95%</span></div>
+                    <div class="track-line"><div class="fill-line" style="width: 95%;"></div></div>
+                </div>
+                <div class="skill-bar-container">
+                    <div class="skill-label-row"><span>النمذجة ثلاثية الأبعاد (3ds Max)</span> <span>85%</span></div>
+                    <div class="track-line"><div class="fill-line" style="width: 85%;"></div></div>
+                </div>
+                <div class="skill-bar-container">
+                    <div class="skill-label-row"><span>اختيار المواد والخامات</span> <span>90%</span></div>
+                    <div class="track-line"><div class="fill-line" style="width: 90%;"></div></div>
+                </div>
+                <div class="skill-bar-container">
+                    <div class="skill-label-row"><span>التصميم البيئي المستدام</span> <span>80%</span></div>
+                    <div class="track-line"><div class="fill-line" style="width: 80%;"></div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="premium-card">
+            <div class="section-main-title">قنوات التواصل المباشر</div>
+            <div class="contact-grid">
+                <div class="contact-cell"><strong>الهاتف:</strong> <span>+966 55 123 4567</span></div>
+                <div class="contact-cell"><strong>البريد:</strong> <span>sara@studio.com</span></div>
+                <div class="contact-cell"><strong>المعرض:</strong> <span>behance.net/sara</span></div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

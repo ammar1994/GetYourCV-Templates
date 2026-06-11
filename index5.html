@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>السيرة الذاتية الطبية الفاخرة - القالب الخامس المطور</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* إعدادات التهيئة العامة */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background-color: #F1F5F9; /* خلفية رمادية ثلجية تبرز بياض البطاقات */
+            padding: 30px 14px;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* حاوية التصميم الطبي الفخم */
+        .medical-cv-wrapper {
+            width: 100%;
+            max-width: 720px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px; 
+        }
+
+        /* هيدر العيادة الذكية المطور */
+        .medical-header {
+            background-color: #ffffff;
+            border-radius: 16px;
+            padding: 32px 24px;
+            box-shadow: 0 10px 25px rgba(2, 132, 199, 0.03);
+            border-top: 6px solid #10B981; /* خط علوي بالأخضر الزمردي المهدئ */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .medical-header:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(16, 185, 129, 0.08);
+        }
+
+        .header-text h1 {
+            color: #0F172A;
+            font-size: 25px;
+            font-weight: 900;
+            margin-bottom: 6px;
+        }
+
+        /* شارة الحالة التفاعلية الوميضية */
+        .status-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 4px;
+        }
+
+        .pulse-dot {
+            width: 10px;
+            height: 10px;
+            background-color: #10B981;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .pulse-dot::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #10B981;
+            border-radius: 50%;
+            animation: pulse-effect 1.8s infinite ease-in-out;
+        }
+
+        @keyframes pulse-effect {
+            0% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(2.5); opacity: 0; }
+        }
+
+        .status-text {
+            color: #0284C7; 
+            font-size: 14.5px;
+            font-weight: 700;
+        }
+
+        /* إطار الصورة الشخصية الطبي */
+        .medical-photo-slot {
+            width: 80px;
+            height: 80px;
+            background-color: #F0FDF4;
+            color: #10B981;
+            border-radius: 50%; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 700;
+            border: 2px solid #10B981;
+            box-shadow: 0 8px 20px rgba(16, 115, 129, 0.06);
+        }
+
+        /* بطاقات المحتوى المستقلة والنظيفة مع تأثير العمق الجديد */
+        .medical-card {
+            background-color: #ffffff;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 10px 25px rgba(2, 132, 199, 0.02);
+            border: 1px solid #E2E8F0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .medical-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(2, 132, 199, 0.08);
+            border-color: #CBD5E1;
+        }
+
+        /* عناوين الأقسام بنمط الشارات الهادئة المحدثة */
+        .medical-section-title {
+            color: #0F172A;
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 2px solid #F1F5F9;
+            padding-bottom: 8px;
+        }
+
+        .medical-section-title::before {
+            content: '';
+            width: 6px;
+            height: 16px;
+            background: linear-gradient(to bottom, #10B981, #0284C7); /* تدرج طبي رائع للنقطة الجانبية */
+            border-radius: 3px;
+        }
+
+        .medical-desc {
+            color: #475569;
+            font-size: 13.5px;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        /* فقرات مسار الخبرات الطبية والأكاديمية */
+        .medical-history-item {
+            margin-bottom: 20px;
+            padding-right: 14px;
+            border-right: 3px solid #E2E8F0;
+            position: relative;
+            transition: border-color 0.3s ease;
+        }
+
+        .medical-history-item:hover {
+            border-color: #10B981; /* تحول الفصل للون الأخضر الطبي عند التركيز */
+        }
+
+        .medical-history-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .medical-item-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 4px;
+        }
+
+        .medical-role-name {
+            font-size: 14.5px;
+            color: #0F172A;
+            font-weight: 700;
+        }
+
+        .medical-date-badge {
+            font-size: 11px;
+            background-color: #E0F2FE; 
+            color: #0369A1;
+            padding: 3px 12px;
+            border-radius: 30px;
+            font-weight: 700;
+        }
+
+        .medical-place {
+            font-size: 12.5px;
+            color: #10B981; 
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        /* شبكة بيانات قنوات التواصل مع تأثير التحويم */
+        .medical-contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+        }
+
+        .medical-contact-box {
+            background-color: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            padding: 12px 14px;
+            border-radius: 10px;
+            font-size: 13px;
+            color: #475569;
+            display: flex;
+            justify-content: space-between;
+            transition: background-color 0.2s ease, border-color 0.2s ease;
+        }
+
+        .medical-contact-box:hover {
+            background-color: #F0FDF4;
+            border-color: #BBF7D0;
+        }
+
+        .medical-contact-box strong {
+            color: #0F172A;
+        }
+
+        .medical-contact-box span {
+            color: #0284C7;
+            font-weight: 600;
+        }
+
+        /* كبسولات المهارات والتخصصات الدقيقة المدعومة بالتوهج */
+        .medical-skills-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .medical-skill-pill {
+            background-color: #F0FDF4; 
+            color: #15803D;
+            border: 1px solid #DCFCE7;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 12.5px;
+            font-weight: 600;
+            transition: all 0.25s ease;
+        }
+
+        .medical-skill-pill:hover {
+            background-color: #10B981;
+            color: #ffffff;
+            border-color: #10B981;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+            transform: scale(1.03);
+        }
+
+        /* ضبط التوافقية المرنة للهواتف المحمولة */
+        @media (max-width: 520px) {
+            .medical-header {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding: 24px 16px;
+            }
+            .medical-photo-slot {
+                margin-bottom: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="medical-cv-wrapper">
+        
+        <div class="medical-header">
+            <div class="header-text">
+                <h1>د. خالد عبد الله الحسين</h1>
+                <div class="status-wrapper">
+                    <div class="pulse-dot"></div>
+                    <span class="status-text">استشاري أمراض وجراحة القلب والأوعية الدموية</span>
+                </div>
+            </div>
+            <div class="medical-photo-slot">صورة</div>
+        </div>
+
+        <div class="medical-card">
+            <div class="medical-section-title">الخلاصة المهنية</div>
+            <p class="medical-desc">طبيب استشاري وباحث موثق يمتلك أكثر من 12 عاماً من الخبرة السريرية في تشخيص وعلاج أمراض القلب المعقدة وعمليات القسطرة التداخلية. ملتزم بتقديم أعلى مستويات الرعاية الصحية المرتكزة على سلامة المرضى، وتطبيق أحدث البروتوكولات العلاجية العالمية.</p>
+        </div>
+
+        <div class="medical-card">
+            <div class="medical-section-title">المناصب الطبية والخبرات السريرية</div>
+            
+            <div class="medical-history-item">
+                <div class="medical-item-row">
+                    <span class="medical-role-name">رئيس قسم القسطرة القلبية التداخلية</span>
+                    <span class="medical-date-badge">2022 - الحالي</span>
+                </div>
+                <div class="medical-place">مدينة الملك فيصل الطبية التخصصية</div>
+                <p class="medical-desc">الإشراف الكامل على العمليات الجراحية اليومية، وتطوير بروتوكولات الطوارئ السريعة لمرضى الجلطات الحادة مما ساهم في رفع كفاءة الاستجابة بنسبة 30%.</p>
+            </div>
+
+            <div class="medical-history-item">
+                <div class="medical-item-row">
+                    <span class="medical-role-name">طبيب أخصائي قلب وأوعية دموية</span>
+                    <span class="medical-date-badge">2016 - 2022</span>
+                </div>
+                <div class="medical-place">مستشفى الرعاية الشاملة الدولي</div>
+                <p class="medical-desc">متابعة الحالات السريرية في أجنحة التنويم والعناية المركزة، وتقديم الاستشارات الطبية الدقيقة لعيادات القلب الخارجية بكفاءة واحترافية عالية.</p>
+            </div>
+        </div>
+
+        <div class="medical-card">
+            <div class="medical-section-title">المؤهلات العلمية والشهادات العليا</div>
+            
+            <div class="medical-history-item">
+                <div class="medical-item-row">
+                    <span class="medical-role-name">زمالة الهيئة الطبية لجراحي القلب والأوعية الدموية</span>
+                    <span class="medical-date-badge">2015</span>
+                </div>
+                <div class="medical-place">الكلية الملكية للأطباء والجراحين</div>
+            </div>
+
+            <div class="medical-history-item" style="border-right: none; padding-right: 0;">
+                <div class="medical-item-row">
+                    <span class="medical-role-name">دكتوراه في الطب والجراحة العامة (MD)</span>
+                    <span class="medical-date-badge">2010</span>
+                </div>
+                <div class="medical-place">كلية الطب والعلوم الصحية بجامعة العاصمة</div>
+            </div>
+        </div>
+
+        <div class="medical-card">
+            <div class="medical-section-title">الالقدرات والتخصصات الدقيقة</div>
+            <div class="medical-skills-flex">
+                <div class="medical-skill-pill">القسطرة القلبية التداخلية</div>
+                <div class="medical-skill-pill">تخطيط القلب وتفسير النتائج المتقدمة</div>
+                <div class="medical-skill-pill">إدارة العناية المركزة القلبية (CCU)</div>
+                <div class="medical-skill-pill">التشخيص بالموجات فوق الصوتية (ECHO)</div>
+                <div class="medical-skill-pill">البحث العلمي الطبي وتطوير البروتوكولات</div>
+            </div>
+        </div>
+
+        <div class="medical-card">
+            <div class="medical-section-title">قنوات التواصل والعيادة المباشرة</div>
+            <div class="medical-contact-grid">
+                <div class="contact-cell medical-contact-box"><strong>الهاتف:</strong> <span>+966 50 000 0000</span></div>
+                <div class="contact-cell medical-contact-box"><strong>البريد:</strong> <span>dr.khaled@hospital.com</span></div>
+                <div class="contact-cell medical-contact-box"><strong>الموقع:</strong> <span>dr-khaled-cardio.com</span></div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

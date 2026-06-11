@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative CV Template - English Version</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        body {
+            background-color: #F4F6FA;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Main CV Container */
+        .cv-wrapper {
+            width: 100%;
+            max-width: 700px;
+            background-color: #ffffff;
+            border-radius: 14px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header Layout */
+        .cv-header {
+            background: linear-gradient(135deg, #4A0E4E, #2A082C);
+            color: #ffffff;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .profile-img-slot {
+            width: 90px;
+            height: 90px;
+            background-color: rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            margin: 0 auto 15px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .cv-header h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .cv-header p {
+            font-size: 14px;
+            color: #E2D5E3;
+        }
+
+        /* Body Sections */
+        .cv-body {
+            padding: 25px 20px;
+        }
+
+        .section-block {
+            margin-bottom: 28px;
+        }
+
+        .section-title {
+            color: #4A0E4E;
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            border-bottom: 2px solid #F0E6F1;
+            padding-bottom: 5px;
+        }
+
+        .section-desc {
+            font-size: 13.5px;
+            color: #4C4F5A;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        /* Experience and Education Cards - LTR direction */
+        .card-item {
+            border-left: 3px solid #A27B88; /* Swapped to the left side */
+            padding-left: 12px;
+            margin-bottom: 18px;
+            transition: all 0.3s ease;
+        }
+        
+        .card-item:hover {
+            border-left-color: #4A0E4E;
+            transform: translateX(3px); /* Interactive movement to the right */
+        }
+
+        .card-header-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 6px;
+        }
+
+        .card-title-text {
+            font-size: 14px;
+            color: #1A1A1A;
+            font-weight: 700;
+        }
+
+        .card-badge-date {
+            font-size: 11px;
+            background-color: #F0E6F1;
+            color: #4A0E4E;
+            padding: 4px 10px;
+            border-radius: 8px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .card-subtitle-text {
+            font-size: 12.5px;
+            color: #707584;
+            margin-bottom: 6px;
+        }
+
+        /* Contact Details Box */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+
+        .contact-box {
+            background-color: #F9F8FA;
+            border: 1px solid #EDEAF0;
+            padding: 12px 14px;
+            border-radius: 8px;
+            font-size: 13px;
+            color: #4C4F5A;
+            transition: all 0.2s ease;
+        }
+        
+        .contact-box:hover {
+            background-color: #F3EEF5;
+            border-color: #E4D5E7;
+        }
+
+        .contact-box strong {
+            color: #4A0E4E;
+            margin-right: 5px; /* Spacing for LTR text */
+        }
+
+        /* Skill Badges Layout - Horizontal grid packing */
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            direction: ltr;
+        }
+
+        .skill-item-badge {
+            background-color: #F0E6F1;
+            color: #4A0E4E;
+            font-size: 12.5px;
+            font-weight: 500;
+            padding: 6px 14px;
+            border-radius: 20px;
+            border: 1px solid #E4D5E7;
+            transition: all 0.2s ease;
+            cursor: default;
+        }
+        
+        .skill-item-badge:hover {
+            background-color: #4A0E4E;
+            color: #ffffff;
+            border-color: #4A0E4E;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cv-wrapper">
+        <div class="cv-header">
+            <div class="profile-img-slot">PHOTO</div>
+            <h1>Ahmed Mohamed Al-Badawi</h1>
+            <p>Senior UI/UX Designer & Web Developer</p>
+        </div>
+
+        <div class="cv-body">
+            
+            <div class="section-block">
+                <div class="section-title">Professional Summary</div>
+                <p class="section-desc">Passionate front-end developer and designer dedicated to creating unique digital user experiences. Over 3 years of advanced experience transforming complex creative concepts into highly optimized and clean standard web codes.</p>
+            </div>
+
+            <div class="section-block">
+                <div class="section-title">Work Experience</div>
+                
+                <div class="card-item">
+                    <div class="card-header-row">
+                        <span class="card-title-text">Senior UI/UX Designer</span>
+                        <span class="card-badge-date">2024 - Present</span>
+                    </div>
+                    <div class="card-subtitle-text">Global Digital Innovation Co.</div>
+                    <p class="section-desc">Responsible for creating complete visual brand identities for modern web applications, optimizing user journeys, and boosting interaction rates by 35%.</p>
+                </div>
+
+                <div class="card-item">
+                    <div class="card-header-row">
+                        <span class="card-title-text">Front-End Developer & Graphic Designer</span>
+                        <span class="card-badge-date">2022 - 2024</span>
+                    </div>
+                    <div class="card-subtitle-text">Wamda Tech Studio</div>
+                    <p class="section-desc">Developed responsive landing pages and corporate web templates utilizing semantic layouts, focusing on extreme performance and grid precision.</p>
+                </div>
+            </div>
+
+            <div class="section-block">
+                <div class="section-title">Education & Credentials</div>
+                <div class="card-item" style="margin-bottom: 0;">
+                    <div class="card-header-row">
+                        <span class="card-title-text">Bachelor of Information Technology & Communications</span>
+                        <span class="card-badge-date">2018 - 2022</span>
+                    </div>
+                    <div class="card-subtitle-text">University of Software Science & Technology</div>
+                </div>
+            </div>
+
+            <div class="section-block">
+                <div class="section-title">Contact Information</div>
+                <div class="contact-grid">
+                    <div class="contact-box"><strong>Phone:</strong> +963 930 000 000</div>
+                    <div class="contact-box"><strong>Email:</strong> ahmed@email.com</div>
+                    <div class="contact-box"><strong>Portfolio:</strong> portfolio.com</div>
+                </div>
+            </div>
+
+            <div class="section-block" style="margin-bottom: 0;">
+                <div class="section-title">Professional Skills</div>
+                <div class="skills-list">
+                    <div class="skill-item-badge">UI/UX Interface Design</div>
+                    <div class="skill-item-badge">HTML5 / CSS3 Layouts</div>
+                    <div class="skill-item-badge">Flexbox & Grid Systems</div>
+                    <div class="skill-item-badge">Responsive Web Design</div>
+                    <div class="skill-item-badge">Clean Code Structuring</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

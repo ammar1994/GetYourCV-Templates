@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>السيرة الذاتية الإبداعية المحدثة - GetYourCV</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* إعدادات تصفير الأبعاد وبنية الخط */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Vazirmatn', sans-serif;
+        }
+
+        body {
+            background-color: #0F172A; /* الخلفية الليلية الفخمة */
+            padding: 25px 12px;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* حاوية التصميم الإبداعية المحدثة بظلال نيون خفيفة */
+        .creative-cv-box {
+            width: 100%;
+            max-width: 700px;
+            background-color: #1E293B; 
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 25px rgba(6, 182, 212, 0.05);
+            border: 1px solid #334155;
+        }
+
+        /* هيدر نيون متدرج ومشع */
+        .hero-header {
+            background: linear-gradient(135deg, #0EA5E9, #2563EB); 
+            padding: 35px 25px;
+            position: relative;
+            text-align: right;
+            border-bottom: 2px solid #06B6D4;
+        }
+
+        /* إطار الصورة المبتكر هندسياً */
+        .photo-frame {
+            position: absolute;
+            left: 25px;
+            top: 35px;
+            width: 85px;
+            height: 85px;
+            background: rgba(255, 255, 255, 0.15);
+            border: 3px solid #06B6D4; 
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 700;
+            color: #ffffff;
+            transform: rotate(-4deg); 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            backdrop-filter: blur(5px);
+        }
+
+        .hero-header h1 {
+            color: #ffffff;
+            font-size: 26px;
+            font-weight: 900;
+            margin-bottom: 6px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.15);
+        }
+
+        .hero-header p {
+            color: #E0F2FE;
+            font-size: 13.5px;
+            font-weight: 700;
+            background-color: rgba(15, 23, 42, 0.35);
+            display: inline-block;
+            padding: 5px 14px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* جسم المحتوى الداخلي */
+        .cv-main-body {
+            padding: 30px 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        /* الأقسام المحدثة */
+        .cv-section {
+            position: relative;
+        }
+
+        .section-headline {
+            color: #06B6D4; 
+            font-size: 15.5px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-headline::after {
+            content: '';
+            flex-grow: 1;
+            height: 1px;
+            background: linear-gradient(to left, #334155, rgba(51, 65, 85, 0));
+        }
+
+        .section-text {
+            color: #94A3B8; 
+            font-size: 13.5px;
+            line-height: 1.75;
+            text-align: justify;
+        }
+
+        /* بطاقات الخبرة الفاخرة */
+        .neon-card-item {
+            background-color: #111827; 
+            border: 1px solid #334155;
+            border-radius: 14px;
+            padding: 18px;
+            margin-bottom: 15px;
+            position: relative;
+            transition: all 0.25s ease;
+        }
+
+        .neon-card-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .neon-card-item:hover {
+            border-color: #0EA5E9;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(14, 165, 233, 0.1);
+        }
+
+        .card-top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .role-title-text {
+            font-size: 14px;
+            color: #F8FAFC;
+            font-weight: 700;
+        }
+
+        .date-badge-pill {
+            font-size: 11px;
+            background: rgba(14, 165, 233, 0.15);
+            color: #38BDF8;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 700;
+            border: 1px solid rgba(14, 165, 233, 0.3);
+        }
+
+        .company-subtitle {
+            font-size: 12.5px;
+            color: #38BDF8; 
+            margin-bottom: 10px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* شبكة الاتصال المدعومة برمز بصرية مصممة بالـ CSS */
+        .grid-contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
+        }
+
+        .cell-box {
+            background-color: #111827;
+            border: 1px solid #334155;
+            padding: 14px;
+            border-radius: 12px;
+            font-size: 13px;
+            color: #94A3B8;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* الرموز البصرية الصغيرة المصممة بالدواير */
+        .icon-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #06B6D4;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #06B6D4;
+            flex-shrink: 0;
+        }
+
+        .cell-box strong {
+            color: #F8FAFC;
+        }
+
+        .cell-box span {
+            color: #06B6D4;
+        }
+
+        /* شارات المهارات الحية التفاعلية */
+        .flex-skills-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .badge-skill-element {
+            background-color: #1E293B;
+            color: #E2E8F0;
+            border: 1px solid #475569;
+            padding: 7px 16px;
+            border-radius: 30px;
+            font-size: 12.5px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .badge-skill-element:hover {
+            background-color: #06B6D4;
+            color: #0F172A;
+            border-color: #06B6D4;
+            font-weight: 700;
+            box-shadow: 0 0 15px rgba(6, 182, 212, 0.4);
+            transform: scale(1.03);
+        }
+
+        /* حماية التجاوب الكامل على الهواتف المحمولة */
+        @media (max-width: 520px) {
+            .hero-header {
+                padding-top: 135px;
+                text-align: center;
+            }
+            .photo-frame {
+                left: 50%;
+                top: 25px;
+                transform: translateX(-50%) rotate(0deg);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="creative-cv-box">
+        
+        <div class="hero-header">
+            <div class="photo-frame">PHOTO</div>
+            <div class="header-main-text">
+                <h1>أحمد محمد البدوي</h1>
+                <p>مطور واجهات ومصمم حلول رقمية أول</p>
+            </div>
+        </div>
+
+        <div class="cv-main-body">
+            
+            <div class="cv-section">
+                <div class="section-headline">الخلاصة الإبداعية</div>
+                <p class="section-text">مطور خبير متخصص في هندسة وبناء واجهات المستخدم وتجربتها الرقمية. أركز على دمج الأكواد النظيفة بالمعايير العالمية الفائقة مع التصاميم العصرية الحية، لتوفير أداء سريع واستجابة مطلقة على كافة الشاشات والمتصفحات الحديثة.</p>
+            </div>
+
+            <div class="cv-section">
+                <div class="section-headline">الخبرات العملية</div>
+                
+                <div class="neon-card-item">
+                    <div class="card-top-row">
+                        <span class="role-title-text">رئيس فريق تطوير الواجهات (Lead Front-End)</span>
+                        <span class="date-badge-pill">2023 - الحالي</span>
+                    </div>
+                    <div class="company-subtitle"><span class="icon-dot"></span> مجموعة التقنيات الذكية العالمية</div>
+                    <p class="section-text">قيادة عمليات بناء الأنظمة البرمجية الأمامية لمواقع الشركات الكبرى، وتحسين تجربة المستخدم مما أدى لرفع نسبة رضا العملاء بمقدار 25%.</p>
+                </div>
+
+                <div class="neon-card-item">
+                    <div class="card-top-row">
+                        <span class="role-title-text">مطور واجهات ومصمم تخصصي</span>
+                        <span class="date-badge-pill">2021 - 2023</span>
+                    </div>
+                    <div class="company-subtitle"><span class="icon-dot"></span> منصة واعد للحلول البرمجية المتكاملة</div>
+                    <p class="section-text">هيكلة وتنسيق صفحات الهبوط الإعلانية والقوالب التفاعلية السريعة لـ 15 عميلاً دولياً بكفاءة تشغيلية كاملة وبنية توافقية ممتازة.</p>
+                </div>
+            </div>
+
+            <div class="cv-section">
+                <div class="section-headline">التعليم الأكاديمي</div>
+                <div class="neon-card-item">
+                    <div class="card-top-row">
+                        <span class="role-title-text">بكالوريوس علوم الحاسوب ونظم المعلومات</span>
+                        <span class="date-badge-pill">2017 - 2021</span>
+                    </div>
+                    <div class="company-subtitle"><span class="icon-dot"></span> جامعة العلوم والتكنولوجيا البرمجية</div>
+                </div>
+            </div>
+
+            <div class="cv-section">
+                <div class="section-headline">قنوات التواصل المباشر</div>
+                <div class="grid-contact-container">
+                    <div class="cell-box">
+                        <div class="icon-dot"></div>
+                        <strong>الهاتف:</strong> <span>+963 930 000 000</span>
+                    </div>
+                    <div class="cell-box">
+                        <div class="icon-dot"></div>
+                        <strong>البريد:</strong> <span>ahmed@email.com</span>
+                    </div>
+                    <div class="cell-box">
+                        <div class="icon-dot"></div>
+                        <strong>الرابط:</strong> <span>portfolio.com</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cv-section">
+                <div class="section-headline">القدرات والمهارات الفنية</div>
+                <div class="flex-skills-wrapper">
+                    <div class="badge-skill-element">بناء الواجهات HTML5 / CSS3</div>
+                    <div class="badge-skill-element">تنسيقات النيون والإضاءة</div>
+                    <div class="badge-skill-element">التصميم المتجاوب التام</div>
+                    <div class="badge-skill-element">تخطيط وتوزيع الـ Grid</div>
+                    <div class="badge-skill-element">تحسين تجربة المستخدم UI/UX</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
