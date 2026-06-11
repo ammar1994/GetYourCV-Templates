@@ -20,7 +20,7 @@
 
         body {
             background-color: #F4F6FA;
-            padding: 0; /* تم جعل البادينج صفر ليمتد على الموبايل بالكامل */
+            padding: 0; 
             display: flex;
             justify-content: center;
         }
@@ -28,7 +28,7 @@
         /* Main CV Container */
         .cv-wrapper {
             width: 100%;
-            max-width: 100%; /* تمدد كامل على الموبايل ليلغي المساحات البيضاء */
+            max-width: 100%; 
             background-color: #ffffff;
             overflow: hidden;
             display: flex;
@@ -106,11 +106,12 @@
             color: #4C4F5A;
             line-height: 1.6;
             text-align: justify;
+            white-space: pre-line; /* لضمان ظهور النزول لسطر جديد بشكل صحيح */
         }
 
-        /* Experience and Education Cards - RTL direction matching the twin */
+        /* Experience and Education Cards */
         .card-item {
-            border-right: 3px solid #A27B88; /* على اليمين للغة العربية */
+            border-right: 3px solid #A27B88; 
             padding-right: 12px;
             margin-bottom: 18px;
             transition: all 0.3s ease;
@@ -118,7 +119,7 @@
         
         .card-item:hover {
             border-right-color: #4A0E4E;
-            transform: translateX(-3px); /* حركة تفاعلية لليسار تناسب الـ RTL */
+            transform: translateX(-3px); 
         }
 
         .card-header-row {
@@ -176,10 +177,10 @@
 
         .contact-box strong {
             color: #4A0E4E;
-            margin-left: 5px; /* مسافة للنص العربي */
+            margin-left: 5px; 
         }
 
-        /* Skill Badges Layout - Horizontal grid packing */
+        /* Skill Badges Layout */
         .skills-list {
             display: flex;
             flex-wrap: wrap;
@@ -204,6 +205,12 @@
             color: #ffffff;
             border-color: #4A0E4E;
         }
+
+        /* تنسيق خاص بالطباعة النظيفة عند استدعائه من اللوحة */
+        @media print {
+            body { background-color: #ffffff !important; padding: 0 !important; }
+            .cv-wrapper { max-width: 100% !important; box-shadow: none !important; border-radius: 0 !important; width: 210mm !important; height: 297mm !important; }
+        }
     </style>
 </head>
 <body>
@@ -211,62 +218,43 @@
     <div class="cv-wrapper">
         <div class="cv-header">
             <div class="profile-img-slot">صورة شخصية</div>
-            <h1>أحمد محمد البدوي</h1>
-            <p>مصمم واجهات أقدم ومطور ويب محترف</p>
+            <h1 id="cv-name">أحمد محمد البدوي</h1>
+            <p id="cv-title">مصمم واجهات أقدم ومطور ويب محترف</p>
         </div>
 
         <div class="cv-body">
             
             <div class="section-block">
                 <div class="section-title">الملخص المهني</div>
-                <p class="section-desc">مصمم ومطور واجهات شغوف بخلق تجارب مستخدم رقمية فريدة ومبتكرة. أمتلك خبرة تمتد لأكثر من 3 سنوات في تحويل التصاميم الإبداعية والمعقدة إلى أكواد برمجية نظيفة تماماً باستخدام أحدث تقنيات وتقسيمات الويب القياسية.</p>
+                <p class="section-desc" id="cv-about">مصمم ومطور واجهات شغوف بخلق تجارب مستخدم رقمية فريدة ومبتكرة. أمتلك خبرة تمتد لأكثر من 3 سنوات في تحويل التصاميم الإبداعية والمعقدة إلى أكواد برمجية نظيفة تماماً باستخدام أحدث تقنيات وتقسيمات الويب القياسية.</p>
             </div>
 
             <div class="section-block">
                 <div class="section-title">الخبرات المهنية</div>
-                
-                <div class="card-item">
-                    <div class="card-header-row">
-                        <span class="card-title-text">مصمم واجهات أقدم (UI/UX)</span>
-                        <span class="card-badge-date">2024 - الحالي</span>
-                    </div>
-                    <div class="card-subtitle-text">شركة الإبداع الرقمي العالمية</div>
-                    <p class="section-desc">مسؤول عن بناء وتطوير الهويات البصرية الكاملة لتطبيقات الويب الحديثة، وتحسين رحلة المستخدم، ورفع معدلات التفاعل بنسبة 35%.</p>
-                </div>
-
-                <div class="card-item">
-                    <div class="card-header-row">
-                        <span class="card-title-text">مطور واجهات ومصمم جرافيك</span>
-                        <span class="card-badge-date">2022 - 2024</span>
-                    </div>
-                    <div class="card-subtitle-text">استوديو وميض التقني المشترك</div>
-                    <p class="section-desc">تطوير وتنسيق صفحات الهبوط المتجاوبة والمواقع التعريفية للشركات باستخدام أحدث تقنيات الويب مع مراعاة دقة الأبعاد وسرعة الأداء الكلية.</p>
+                <div id="cv-experience-container">
+                    <p class="section-desc" id="cv-experience">مسؤول عن بناء وتطوير الهويات البصرية الكاملة لتطبيقات الويب الحديثة، وتحسين رحلة المستخدم، ورفع معدلات التفاعل بنسبة 35%.</p>
                 </div>
             </div>
 
             <div class="section-block">
                 <div class="section-title">التعليم والشهادات الأكاديمية</div>
-                <div class="card-item" style="margin-bottom: 0;">
-                    <div class="card-header-row">
-                        <span class="card-title-text">بكالوريوس في تقنية المعلومات والاتصالات</span>
-                        <span class="card-badge-date">2018 - 2022</span>
-                    </div>
-                    <div class="card-subtitle-text">جامعة العلوم والتكنولوجيا البرمجية</div>
+                <div id="cv-education-container">
+                    <p class="section-desc" id="cv-education">بكالوريوس في تقنية المعلومات والاتصالات - جامعة العلوم والتكنولوجيا البرمجية (2018 - 2022)</p>
                 </div>
             </div>
 
             <div class="section-block">
                 <div class="section-title">بيانات الاتصال</div>
                 <div class="contact-grid">
-                    <div class="contact-box"><strong>رقم الهاتف:</strong> +963 930 000 000</div>
-                    <div class="contact-box"><strong>البريد الإلكتروني:</strong> ahmed@email.com</div>
-                    <div class="contact-box"><strong>الموقع الشخصي:</strong> portfolio.com</div>
+                    <div class="contact-box"><strong>رقم الهاتف:</strong> <span id="cv-phone">+963 930 000 000</span></div>
+                    <div class="contact-box"><strong>البريد الإلكتروني:</strong> <span id="cv-email">ahmed@email.com</span></div>
+                    <div class="contact-box"><strong>الموقع الشخصي:</strong> <span id="cv-link">portfolio.com</span></div>
                 </div>
             </div>
 
             <div class="section-block" style="margin-bottom: 0;">
                 <div class="section-title">المهارات الاحترافية</div>
-                <div class="skills-list">
+                <div class="skills-list" id="cv-skills-container">
                     <div class="skill-item-badge">تصميم واجهات UI/UX</div>
                     <div class="skill-item-badge">بناء الويب HTML5 / CSS3</div>
                     <div class="skill-item-badge">أنظمة توزيع العناصر Flexbox & Grid</div>
@@ -278,5 +266,46 @@
         </div>
     </div>
 
+    <script>
+        window.addEventListener('message', function(event) {
+            const data = event.data;
+            if (!data) return;
+
+            // تحديث النصوص الأساسية فوراً عند الكتابة في لوحة التحكم
+            if(data.name) document.getElementById('cv-name').innerText = data.name;
+            if(data.title) document.getElementById('cv-title').innerText = data.title;
+            if(data.about) document.getElementById('cv-about').innerText = data.about;
+            if(data.phone) document.getElementById('cv-phone').innerText = data.phone;
+            if(data.email) document.getElementById('cv-email').innerText = data.email;
+            if(data.link) document.getElementById('cv-link').innerText = data.link;
+
+            // تحديث حقل الخبرات مع دعم النزول لسطر جديد
+            if(data.experience) {
+                document.getElementById('cv-experience').innerText = data.experience;
+            }
+
+            // تحديث حقل التعليم
+            if(data.education) {
+                document.getElementById('cv-education').innerText = data.education;
+            }
+
+            // تحديث المهارات وتحويلها إلى شارات (Badges) احترافية بنفس تنسيق القالب الأصلي
+            if(data.skills) {
+                const container = document.getElementById('cv-skills-container');
+                container.innerHTML = ''; // تفريغ القديم
+                
+                // تقسيم المهارات عبر الفاصلة وضخها بشكل ديناميكي
+                const skillsArray = data.skills.split(',');
+                skillsArray.forEach(skill => {
+                    if(skill.trim() !== "") {
+                        const badge = document.createElement('div');
+                        badge.className = 'skill-item-badge';
+                        badge.innerText = skill.trim();
+                        container.appendChild(badge);
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
